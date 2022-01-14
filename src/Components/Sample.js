@@ -16,13 +16,25 @@ function Sample() {
     // console.log(sample.DailyForecasts)
     //the following line works at first, but then gets an error upon refresh...?
     //the output should be just the high for the day (temp)
-    // console.log(sample.DailyForecasts[0].Temperature.Maximum.Value)
+
+    function displayTemp() {
+        return (
+            <div>
+                `The high in Santiago, Chile today is {sample.DailyForecasts[0].Temperature.Maximum.Value} degrees F.`
+            </div>
+        )
+    }
+
+    const sampleText = sample.DailyForecasts
+    // `The high in Santiago, Chile today is ${sample.DailyForecasts[0].Temperature.Maximum.Value} degrees F.` : 'Loading...'
     // const highTemp = sample.DailyForecasts[0].Temperature.Maximum.Value
 
     return(
         <div>
-            SAMPLE
-            {/* The high in Santiago, Chile today is: {highTemp} degrees F */}
+            { sampleText ? displayTemp() : "loading..."}
+    
+            {/* {sampleText} */}
+            
         </div>
     )
 }
