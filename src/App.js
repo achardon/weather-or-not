@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import Sample from './Components/Sample';
 
 function App() {
 
@@ -7,7 +7,8 @@ function App() {
 
   return (
     <div>
-      Weather Or Not?
+      <h1>Weather Or Not?</h1>
+      <Sample />
     </div>
   );
 }
