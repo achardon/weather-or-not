@@ -20,7 +20,7 @@ function Sample() {
     function displayTemp() {
         return (
             <div>
-                `The high in Santiago, Chile today is {sample.DailyForecasts[0].Temperature.Maximum.Value} degrees F.`
+                The high in Santiago, Chile today is {sample.DailyForecasts[0].Temperature.Maximum.Value} degrees F.
             </div>
         )
     }
