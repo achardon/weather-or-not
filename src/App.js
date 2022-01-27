@@ -2,7 +2,9 @@ import './App.css';
 import Sample from './Components/Sample';
 import {useState, useEffect} from 'react';
 import SearchCity from './Components/SearchCity';
-import ResultsContainer from './ResultsContainer';
+import ResultsContainer from './Components/ResultsContainer';
+import { Route, Routes } from "react-router-dom";
+import CityCard from './Components/CityCard';
 
 function App() {
 
@@ -11,14 +13,17 @@ function App() {
   const [cityID, setCityID] = useState('')
   const [searchResults, setSearchResults] = useState('')
 
-  console.log(searchResults)
+  // console.log(searchResults)
 
   return (
     <div>
       <h1>Weather Or Not?</h1>
-      <Sample />
-      <SearchCity setSearchResults={setSearchResults}/>
-      <ResultsContainer searchResults={searchResults}/>
+      <Routes>
+        <Route path="/" element={<SearchCity setSearchResults={setSearchResults} searchResults={searchResults}/>} />
+        {/* <Route path="/results" element={<ResultsContainer searchResults={searchResults}/>} /> */}
+        <Route path="/results/:cityID" element={<CityCard searchResults={searchResults}/>} />
+
+      </Routes>
     </div>
   );
 }

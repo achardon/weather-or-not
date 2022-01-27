@@ -1,14 +1,15 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import ResultsContainer from './ResultsContainer';
 
 
-function SearchCity( {setSearchResults} ) {
+function SearchCity( {setSearchResults, searchResults} ) {
 
     const [searchTerm, setSearchTerm] = useState('')
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=rqD1GdxpTzRkSPRIwkngqiOApSnHCRWG&q=${searchTerm}`)
+        fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${process.env.REACT_APP_API_KEY}=${searchTerm}`)
         .then(r => r.json())
         .then(data => {
             const results = data.map(city => {
@@ -25,6 +26,8 @@ function SearchCity( {setSearchResults} ) {
             <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
             <input type="submit" value="Search"/>
         </form>
+
+        <ResultsContainer searchResults={searchResults}/>
     </div>
   )
 }

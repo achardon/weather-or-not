@@ -5,7 +5,7 @@ function Sample() {
     const [sample, setSample] = useState({})
 
     useEffect(() => {
-        fetch('http://dataservice.accuweather.com/forecasts/v1/daily/1day/60449?apikey=rqD1GdxpTzRkSPRIwkngqiOApSnHCRWG')
+        fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/60449?apikey=${process.env.REACT_APP_API_KEY}`)
         .then(r => r.json())
         .then(data => {
             setSample(data)
