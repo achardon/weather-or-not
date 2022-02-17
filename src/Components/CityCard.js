@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 
-function CityCard( {searchResults} ) {
+function CityCard( {searchResults, selectedCityName} ) {
 
     const params = useParams()
     console.log(params)
@@ -23,7 +23,7 @@ function CityCard( {searchResults} ) {
     }, [])
 
   return <div>
-      The high today in (placeholder: Copenhagen) is {cityInfo? cityInfo.DailyForecasts[0].Temperature.Maximum.Value : null} degrees.
+      The high today in {selectedCityName} is {cityInfo? cityInfo.DailyForecasts[0].Temperature.Maximum.Value : null} degrees.
   </div>;
 }
 

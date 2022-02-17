@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import ResultsContainer from './ResultsContainer';
 
 
-function SearchCity( {setSearchResults, searchResults} ) {
+function SearchCity( {setSearchResults, searchResults, setSelectedCityName} ) {
 
     const [searchTerm, setSearchTerm] = useState('')
 
@@ -28,7 +28,7 @@ function SearchCity( {setSearchResults, searchResults} ) {
             <input type="submit" value="Search"/>
         </form>
 
-        <ResultsContainer searchResults={searchResults}/>
+        <ResultsContainer searchResults={searchResults} setSelectedCityName={setSelectedCityName}/>
     </div>
   )
 }

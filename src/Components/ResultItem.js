@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function ResultItem( {result} ) {
+function ResultItem( {result, setSelectedCityName} ) {
     console.log(result)
+
+    function handleClick() {
+      setSelectedCityName(`${result.city}, ${result.country}`)
+    }
+
   return <div>
       {/* {result.city}, {result.country} */}
-      <Link 
+      {/* <button> */}
+        <Link onClick = {handleClick}
         to={`/results/${result.cityID}`}
         key={result.cityID}
         >{result.city}, {result.country}</Link>
@@ -15,6 +21,7 @@ function ResultItem( {result} ) {
           >
             {invoice.name}
       </Link> */}
+        {/* </button> */}
   </div>;
 }
 

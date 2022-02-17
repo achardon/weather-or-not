@@ -12,6 +12,9 @@ function App() {
 
   const [cityID, setCityID] = useState('')
   const [searchResults, setSearchResults] = useState('')
+  const [selectedCityName, setSelectedCityName] = useState('')
+
+  console.log(selectedCityName)
 
   // console.log(searchResults)
 
@@ -19,9 +22,9 @@ function App() {
     <div>
       <h1>Weather Or Not?</h1>
       <Routes>
-        <Route path="/" element={<SearchCity setSearchResults={setSearchResults} searchResults={searchResults}/>} />
+        <Route path="/" element={<SearchCity setSelectedCityName={setSelectedCityName} setSearchResults={setSearchResults} searchResults={searchResults}/>} />
         {/* <Route path="/results" element={<ResultsContainer searchResults={searchResults}/>} /> */}
-        <Route path="/results/:cityID" element={<CityCard searchResults={searchResults}/>} />
+        <Route path="/results/:cityID" element={<CityCard searchResults={searchResults} selectedCityName={selectedCityName}/>} />
 
       </Routes>
     </div>
