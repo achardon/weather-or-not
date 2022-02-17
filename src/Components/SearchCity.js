@@ -9,7 +9,8 @@ function SearchCity( {setSearchResults, searchResults} ) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${process.env.REACT_APP_API_KEY}=${searchTerm}`)
+        // fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${process.env.REACT_APP_API_KEY}=${searchTerm}`)
+        fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=rqD1GdxpTzRkSPRIwkngqiOApSnHCRWG&q=${searchTerm}`)
         .then(r => r.json())
         .then(data => {
             const results = data.map(city => {
